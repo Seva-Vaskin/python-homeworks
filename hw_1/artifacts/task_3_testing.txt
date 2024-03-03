@@ -1,0 +1,33 @@
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/wc.py
+test
+text is cool
+!!!
+ 3  5 26
+vsevolod@lp-0734:~/spbu/python-homeworks$ wc
+test
+text is cool
+!!!
+      3       5      22
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/wc.py hw_1/artifacts/sample_file.txt hw_1/tail.py hw_1/wc.py hw_1/nl.py
+  20   40  151 hw_1/artifacts/sample_file.txt
+  37   98 1096 hw_1/tail.py
+  65  180 2171 hw_1/wc.py
+  32   78  921 hw_1/nl.py
+ 154  396 4339 total
+vsevolod@lp-0734:~/spbu/python-homeworks$ wc hw_1/artifacts/sample_file.txt hw_1/tail.py hw_1/wc.py hw_1/nl.py
+  20   40  151 hw_1/artifacts/sample_file.txt
+  37   98 1096 hw_1/tail.py
+  65  180 2171 hw_1/wc.py
+  32   78  921 hw_1/nl.py
+ 154  396 4339 total
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/wc.py file ./
+hw_1/wc.py: 'file': No such file or directory
+hw_1/wc.py: .: Is a directory
+0 0 0 .
+0 0 0 total
+vsevolod@lp-0734:~/spbu/python-homeworks$ wc file ./
+wc: file: No such file or directory
+wc: ./: Is a directory
+      0       0       0 ./
+      0       0       0 total
+
