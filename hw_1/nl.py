@@ -17,14 +17,13 @@ def main():
             file_path = Path(sys.argv[i])
             if not file_path.exists():
                 print(f"{sys.argv[0]}: {file_path}: No such file or directory", file=sys.stderr)
-                continue
-            if file_path.is_dir():
+            elif file_path.is_dir():
                 print(f"{sys.argv[0]}: {file_path}: Is a directory", file=sys.stderr)
-                continue
-            if not file_path.is_file():
+            elif not file_path.is_file():
                 print(f"{sys.argv[0]}: {file_path}: Is not a file", file=sys.stderr)
-            with file_path.open('r') as f:
-                print_numbered_lines(f)
+            else:
+                with file_path.open('r') as f:
+                    print_numbered_lines(f)
     else:
         print_numbered_lines(sys.stdin)
 
