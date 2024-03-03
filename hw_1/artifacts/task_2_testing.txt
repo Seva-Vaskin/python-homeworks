@@ -1,0 +1,116 @@
+vsevolod@lp-0734:~/spbu/python-homeworks$ tail ./
+tail: error reading './': Is a directory
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/tail.py ./
+hw_1/tail.py: error reading .: Is a directory
+vsevolod@lp-0734:~/spbu/python-homeworks$ tail file
+tail: cannot open 'file' for reading: No such file or directory
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/tail.py file
+hw_1/tail.py: cannot open 'file' for reading: No such file or directory
+vsevolod@lp-0734:~/spbu/python-homeworks$ cat hw_1/artifacts/sample_file.txt | tail -n 17
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
+vsevolod@lp-0734:~/spbu/python-homeworks$ cat hw_1/artifacts/sample_file.txt | python hw_1/tail.py
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
+vsevolod@lp-0734:~/spbu/python-homeworks$ tail hw_1/nl.py hw_1/tail.py hw_1/artifacts/sample_file.txt
+==> hw_1/nl.py <==
+                print(f"{sys.argv[0]}: {file_path}: Is not a file", file=sys.stderr)
+            else:
+                with file_path.open('r') as f:
+                    print_numbered_lines(f)
+    else:
+        print_numbered_lines(sys.stdin)
+
+
+if __name__ == "__main__":
+    main()
+
+==> hw_1/tail.py <==
+            if len(sys.argv) > 2:
+                print(f"==> {file_path} <==")
+            with file_path.open('r') as f:
+                tail(f, 10)
+    else:
+        tail(sys.stdin, 17)
+
+
+if __name__ == "__main__":
+    main()
+
+==> hw_1/artifacts/sample_file.txt <==
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
+vsevolod@lp-0734:~/spbu/python-homeworks$ python hw_1/tail.py hw_1/nl.py hw_1/tail.py hw_1/artifacts/sample_file.txt
+==> hw_1/nl.py <==
+                print(f"{sys.argv[0]}: {file_path}: Is not a file", file=sys.stderr)
+            else:
+                with file_path.open('r') as f:
+                    print_numbered_lines(f)
+    else:
+        print_numbered_lines(sys.stdin)
+
+
+if __name__ == "__main__":
+    main()
+
+==> hw_1/tail.py <==
+            if len(sys.argv) > 2:
+                print(f"==> {file_path} <==")
+            with file_path.open('r') as f:
+                tail(f, 10)
+    else:
+        tail(sys.stdin, 17)
+
+
+if __name__ == "__main__":
+    main()
+
+==> hw_1/artifacts/sample_file.txt <==
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
