@@ -1,3 +1,4 @@
+import subprocess
 from typing import Iterable, Optional
 
 
@@ -20,9 +21,9 @@ def gen_document(packages: Optional[Iterable[str]] = None):
         def wrapper(*args, **kwargs):
             res = []
             res += ["\\documentclass{article}"]
-            res += ["\\begin{document}"]
             if packages:
                 res += [f"\\usepackage{{{i}}}" for i in packages]
+            res += ["\\begin{document}"]
             func_output = func(*args, **kwargs)
             res += [func_output]
             res += ["\\end{document}\n"]
@@ -33,9 +34,15 @@ def gen_document(packages: Optional[Iterable[str]] = None):
     return decorator
 
 
-@gen_document()
-@latex_scope("centering")
 def generate_latex_table(data):
     return f"\\begin{{tabular}}{{{'c' * len(data[0])}}}\n" + \
         " \\\\\n".join(" & ".join(map(str, row)) for row in data) + " \\\\\n" + \
         f"\\end{{tabular}}"
+
+
+@latex_scope('figure', '[h]')
+def generate_latex_image(image_path, scale=1, caption=None):
+    figure_content = f"\\includegraphics[scale={scale}]{{ \"{image_path}\" }}"
+    if caption:
+        figure_content += f"\\caption{{ {caption} }}"
+    return figure_content
