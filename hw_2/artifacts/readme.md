@@ -17,7 +17,7 @@
 соответственно:
 
 ```
-python hw_2/generate_table.py 4 7 hw_2/artifacts/example_image.png >hw_2/artifacts/task_2_2.tex
+python hw_2/generate_tex_file.py 4 7 hw_2/artifacts/example_image.png >hw_2/artifacts/task_2_2.tex
 ```
 
 ```
@@ -27,3 +27,5 @@ pdflatex hw_2/artifacts/task_2_2.tex
 Собранный пакет можно найти по [этой ссылке](https://pypi.org/project/latex-generator-test/)
 
 # Задача 2.3
+
+[Dockerfile](../Dockerfile)
